@@ -90,7 +90,7 @@ graph TD
     subgraph DALi Adaptor
         SL[SvgLoader]
         AL[AnimationLoader]
-        TVR[ThorVGRenderer<br/>(Unified Backend)]
+        TVR["ThorVGRenderer<br/>(Unified Backend)"]
     end
 
     subgraph Engine

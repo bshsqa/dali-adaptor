@@ -40,8 +40,8 @@ graph LR
     subgraph "Tizen Accessibility Core"
         Core[Core Logic]
     end
-    Actor -.-> Adapter : Inspects (Runtime)
-    Adapter <--> Core : Implements Interface
+    Actor -.->|Inspects (Runtime)| Adapter
+    Adapter <-->|Implements Interface| Core
 ```
 
 #### Diagram (PlantUML)
@@ -78,9 +78,9 @@ graph LR
         Mirror[Mirror Tree]
         Core[Core Logic]
     end
-    Actor --> IPC_Client : Serialize Tree
-    IPC_Client <--> IPC_Server : IPC (Socket/Pipe)
-    IPC_Server --> Mirror : Update
+    Actor -->|Serialize Tree| IPC_Client
+    IPC_Client <-->|IPC (Socket/Pipe)| IPC_Server
+    IPC_Server -->|Update| Mirror
     Mirror <--> Core
 ```
 
@@ -124,7 +124,7 @@ graph LR
         Core[Core Logic]
     end
     Actor <--> Impl
-    Impl <--> Core : Direct Function Call
+    Impl <-->|Direct Function Call| Core
 ```
 
 #### Diagram (PlantUML)

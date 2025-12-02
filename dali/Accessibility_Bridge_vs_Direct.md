@@ -72,7 +72,7 @@ graph LR
         Lib[Core Library]
     end
     
-    Actor -.-> Adapter : Runtime Inspection
+    Actor -.->|Runtime Inspection| Adapter
     Adapter == Dynamic Link ==> Lib
     
     style Adapter fill:#bbf,stroke:#333,stroke-width:2px
