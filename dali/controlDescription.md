@@ -11,6 +11,7 @@ DALi Control 및 Visual 아키텍처: 고성능 UI/UX 구현을 위한 통합 �
 2. DALi 전체 아키텍처 조망
 DALi 시스템은 하드웨어 추상화 계층 위에서 애플리케이션 로직까지 이어지는 다층적(Layered) 구조를 가지고 있습니다.
 2.1 전체 아키텍처 다이어그램
+
 classDiagram
     direction TB
     
