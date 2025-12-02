@@ -12,6 +12,8 @@ DALi Control 및 Visual 아키텍처: 고성능 UI/UX 구현을 위한 통합 �
 DALi 시스템은 하드웨어 추상화 계층 위에서 애플리케이션 로직까지 이어지는 다층적(Layered) 구조를 가지고 있습니다.
 2.1 전체 아키텍처 다이어그램
 
+
+```mermaid
 classDiagram
     direction TB
     
@@ -123,6 +125,7 @@ classDiagram
     Material *-- Shader
     ImageVisual..> TextureManager : uses
     TextVisual..> FontManager : uses
+```
 
 2.2 계층별 역할 및 구성 요소
  * Application Layer: Application 클래스는 프로그램의 진입점으로, 툴킷 계층의 Control 객체들을 생성하고 씬(Scene)에 배치합니다.
