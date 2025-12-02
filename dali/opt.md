@@ -209,7 +209,7 @@ Visual은 화면에 그려지는 그래픽 요소를 추상화한 객체이다. 
 **Mermaid Diagram (Lifecycle State Machine):**
 ```mermaid
 stateDiagram-v2
-    [*] --> Created : Visual::New()
+    [*] --> Created : "Visual::New()"
     
     state Created {
         [*] --> DataOnly
@@ -220,7 +220,7 @@ stateDiagram-v2
         end note
     }
 
-    Created --> OnScene : SetOnScene()
+    Created --> OnScene : "SetOnScene()"
     
     state OnScene {
         [*] --> CreateRenderer
@@ -232,7 +232,7 @@ stateDiagram-v2
         end note
     }
 
-    OnScene --> OffScene : SetOffScene()
+    OnScene --> OffScene : "SetOffScene()"
     
     state OffScene {
         [*] --> ReleaseRenderer
@@ -243,7 +243,7 @@ stateDiagram-v2
         end note
     }
     
-    OffScene --> OnScene : Re-use
+    OffScene --> OnScene : "Re-use"
     OffScene --> [*] : Destroy
 ```
 
@@ -329,20 +329,20 @@ DALi는 스크립트 언어(NUI, JS) 지원을 위해 `Property::Map`이라는 �
 **Mermaid Diagram:**
 ```mermaid
 flowchart TD
-    subgraph Client Code
-    A[App (C++)]
-    B[Script (JS/NUI)]
+    subgraph Client_Code ["Client Code"]
+        A["App (C++)"]
+        B["Script (JS/NUI)"]
     end
     
-    subgraph Visual Interface
-    C{API Call}
-    D[ScriptAdaptor]
-    E[Direct Setter]
+    subgraph Visual_Interface ["Visual Interface"]
+        C{"API Call"}
+        D[ScriptAdaptor]
+        E[Direct Setter]
     end
     
-    subgraph Internal Logic
-    F[Property Map Parser]
-    G[Visual Data Struct]
+    subgraph Internal_Logic ["Internal Logic"]
+        F[Property Map Parser]
+        G[Visual Data Struct]
     end
     
     B --> D
@@ -350,10 +350,10 @@ flowchart TD
     A --> E
     E --> C
     
-    C -- String Key --> F
-    C -- Direct Call --> G
+    C -- "String Key" --> F
+    C -- "Direct Call" --> G
     
-    F -- Hash Search & Unbox --> G
+    F -- "Hash Search & Unbox" --> G
     
     style E fill:#9f9,stroke:#333,stroke-width:2px
     style G fill:#9f9,stroke:#333,stroke-width:2px
