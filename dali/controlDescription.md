@@ -145,6 +145,9 @@ classDiagram
 Control 레이어는 UI 컴포넌트의 '두뇌'입니다. 사용자 상호작용 처리, 상태 관리, 그리고 어떤 Visual을 언제 보여줄지 결정합니다.
 3.1 Control 클래스 계층 구조
 모든 Control은 CustomActor를 상속받아 씬 그래프의 일원이 됩니다. Handle-Body 패턴(Pimpl)을 사용하여 구현부를 숨기고 API 호환성을 유지합니다.
+
+
+```mermaid
 classDiagram
     direction BT
     
@@ -205,6 +208,7 @@ classDiagram
     %% Composition
     Control *-- ControlDataImpl : contains handle
     ControlImpl..> Control : references handle
+```
 
 3.2 Control 내부 아키텍처 (3-Tier Structure)
  * Control (Public API): 개발자가 사용하는 인터페이스. 실제 데이터는 거의 없으며 구현 객체로 위임합니다.
@@ -213,6 +217,9 @@ classDiagram
 4. Visual 레이어 상세 분석
 Visual 레이어는 "어떻게 그릴 것인가"를 정의합니다. 다양한 렌더링 타입(이미지, 텍스트, 그라데이션 등)을 지원하기 위해 상속 구조를 가집니다.
 4.1 Visual 클래스 계층 구조
+   
+
+```mermaid
 classDiagram
     direction TB
     
@@ -281,6 +288,7 @@ classDiagram
 
     %% Composition
     VisualBaseImpl *-- VisualBaseDataImpl
+```
 
 4.2 주요 Visual 타입
  * ImageVisual: 이미지 파일, 텍스처 렌더링. 아틀라싱(Atlasing)과 비동기 로딩을 지원합니다.
@@ -296,6 +304,9 @@ VisualBaseDataImpl은 렌더링에 필요한 핵심 데이터를 보유합니다
 5. Control과 Visual의 상호작용 (Interaction)
 Control과 Visual은 독립적이지만 긴밀하게 협력합니다. 이 관계를 이해하는 것이 DALi 아키텍처의 핵심입니다.
 5.1 Control-Visual 관계 다이어그램
+
+
+```mermaid
 classDiagram
     direction LR
 
@@ -344,6 +355,7 @@ classDiagram
     
     note for Control "UI Component Logic"
     note for VisualBase "Rendering Logic"
+```
 
 5.2 상호작용 메커니즘
  * 컨테이너 역할: Control은 Visual들의 컨테이너입니다. 하나의 Control은 배경, 아이콘, 텍스트 등 여러 Visual을 동시에 가질 수 있습니다 (1:N 관계).
